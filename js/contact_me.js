@@ -44,6 +44,14 @@ $(function() {
               .append("<strong>Sua mensagem foi entregue com sucesso. </strong>");
             $('#success > .alert-success')
               .append('</div>');
+          } else if(response.msg.indexOf('already subscribed') != -1){
+            $('#success').html("<div class='alert alert-warning'>");
+            $('#success > .alert-warning').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+              .append("</button>");
+            $('#success > .alert-warning').append($("<strong>").text("Desculpa " + firstName + ", você já faz parte dessa lista!"));
+            $('#success > .alert-warning').append('</div>');
+            //clear all fields
+            $('#contactForm').trigger("reset");
           }
           //clear all fields
           $('#contactForm').trigger("reset");
